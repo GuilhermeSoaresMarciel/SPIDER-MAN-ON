@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+:root {
+  --bg-v1: rgb(20, 20, 20);
+  --bg-v2: rgb(40, 40, 40);
+
+  --value: 5px;
+}
+
+::-webkit-scrollbar {
+  width: var(--value);
+  height: var(--value);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-v1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-v2);
+}
