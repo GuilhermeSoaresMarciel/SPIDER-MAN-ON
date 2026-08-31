@@ -5,6 +5,8 @@ import "./index.css";
 
 import img_spiders from "./assets/spiders.png";
 
+import Cast from "./components/Cast.jsx";
+
 const bg_v1 = "bg-gray-900";
 const bg_v2 = "bg-gray-700";
 
@@ -81,6 +83,17 @@ createRoot(document.querySelector("body")).render(
           Homem-Aranha.
         </p>
         <img className="w-[100%] rounded-2xl" src={img_spiders} />
+      </section>
+      <section className={`flex flex-col ${gap} text-center ${p}`} id="Inicio">
+        <h1 className={`text-4xl ${text_color_v2} font-extrabold`}>
+          Elenco Principal
+        </h1>
+        <div className={`w-[100%] grid grid-cols-2 place-items-center ${gap}`}>
+          <Cast Title="Tom Holland" Inf="Ator que interpreta Peter Parker." />
+          <Cast Title="Zendaya" Inf="MJ" />
+          <Cast Title="Benedict Cumberbatch" Inf="Doutor Estranho" />
+          <Cast Title="Jacob Batalon" Inf="Ned Leeds" />
+        </div>
       </section>
       <footer>
         <h6 className={`${bg_v2} ${p} text-center`}>
