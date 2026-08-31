@@ -1,117 +1,194 @@
-import { StrictMode } from "react";
+import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
-
 import "./index.css";
-
-import img_spiders from "./assets/spiders.png";
-
 import Cast from "./components/Cast.jsx";
+import spidersImage from "./assets/spiders.png";
 
-const bg_v1 = "bg-gray-900";
-const bg_v2 = "bg-gray-700";
+const cast = [
+  { name: "Tom Holland", role: "Peter Parker / Homem-Aranha", number: "01" },
+  { name: "Zendaya", role: "Michelle Jones-Watson", number: "02" },
+  { name: "Benedict Cumberbatch", role: "Doutor Estranho", number: "03" },
+  { name: "Jacob Batalon", role: "Ned Leeds", number: "04" },
+];
 
-const text_color_v1 = "text-white";
-const text_color_v2 = "text-sky-700";
+function ArrowIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 12h13M13 6l6 6-6 6" />
+    </svg>
+  );
+}
 
-const font_main = "font-sans";
+function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
-const p = "p-2";
-const gap = "gap-2";
-
-const hover = "hover:bg-sky-700";
-
-createRoot(document.querySelector("body")).render(
-  <StrictMode>
-    <main className={`min-h-[100dvh] ${bg_v1} ${text_color_v1} ${font_main}`}>
-      <header className={`${bg_v2} flex justify-between items-center ${p}`}>
-        <img className="w-[100px]" src="/logo.png" />
-        <nav className={`flex ${gap}`}>
-          <a
-            className={`transition-all rounded-2xl ${p} ${hover}`}
-            href="#Inicio"
-          >
+  return (
+    <div className="site-shell">
+      <header className="site-header">
+        <a
+          className="brand"
+          href="#inicio"
+          onClick={closeMenu}
+          aria-label="Spider-Man: Sem Volta para Casa"
+        >
+          <span className="brand-mark">MARVEL</span>
+          <span className="brand-name">SPIDER-MAN</span>
+        </a>
+        <button
+          className="menu-toggle"
+          type="button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-expanded={menuOpen}
+          aria-label="Abrir menu"
+        >
+          <span />
+          <span />
+        </button>
+        <nav className={menuOpen ? "main-nav is-open" : "main-nav"}>
+          <a href="#inicio" onClick={closeMenu}>
             Início
           </a>
-          <a
-            className={`transition-all rounded-2xl ${p} ${hover}`}
-            href="#Sobre"
-          >
-            Sobre
+          <a href="#historia" onClick={closeMenu}>
+            A história
           </a>
-          <a
-            className={`transition-all rounded-2xl ${p} ${hover}`}
-            href="#Elenco"
-          >
+          <a href="#elenco" onClick={closeMenu}>
             Elenco
+          </a>
+          <a className="nav-ticket" href="#legado" onClick={closeMenu}>
+            Ver o legado <ArrowIcon />
           </a>
         </nav>
       </header>
-      <section
-        className={`min-h-[100vh] flex flex-col justify-center items-center ${gap} font-extrabold bg-[url(./assets/hero-bg.jpg)] bg-center bg-no-repeat bg-cover`}
-        id="Inicio"
-      >
-        <h1 className={`text-4xl ${text_color_v2}`}>SEM VOLTA PARA CASA</h1>
-        <h1 className="text-3xl">
-          A lenda dos cinemas tem nome
-          <span className={`text-4xl ${text_color_v2}`}>?</span>
-        </h1>
-        <a
-          className={`${bg_v2} rounded-2xl ${p} transition-all hover:scale-110 ${hover}`}
-          href="#Sobre"
-        >
-          Explorar Agora!
-        </a>
-      </section>
-      <section
-        className={`min-h-[100vh] text-center flex flex-col justify-center items-center ${gap} ${p}`}
-        id="Sobre"
-      >
-        <h1 className={`text-4xl ${text_color_v2} font-extrabold`}>
-          O Multiverso foi Aberto
-        </h1>
-        <p>
-          Pela primeira vez na história cinematográfica do Homem-Aranha, nosso
-          <br />
-          herói amigão da vizinhança é desmascarado e não consegue mais separar
-          <br />
-          sua vida normal dos grandes riscos de ser um super-herói. Quando ele
-          <br />
-          pede ajuda ao Doutor Estranho, os riscos tornam-se ainda mais
-          <br />
-          perigosos, forçando-o a descobrir o que realmente significa ser o
-          <br />
-          Homem-Aranha.
-        </p>
-        <img className="w-[100%] rounded-2xl" src={img_spiders} />
-      </section>
-      <section className={`flex flex-col ${gap} text-center ${p}`} id="Inicio">
-        <h1 className={`text-4xl ${text_color_v2} font-extrabold`}>
-          Elenco Principal
-        </h1>
-        <div className={`w-[100%] grid grid-cols-2 place-items-center ${gap}`}>
-          <Cast Title="Tom Holland" Inf="Ator que interpreta Peter Parker." />
-          <Cast Title="Zendaya" Inf="MJ" />
-          <Cast Title="Benedict Cumberbatch" Inf="Doutor Estranho" />
-          <Cast Title="Jacob Batalon" Inf="Ned Leeds" />
-        </div>
-        <h1 className={`text-4xl ${text_color_v2} font-extrabold`}>
-          Conexão de Mundos
-        </h1>
-        <p>
-          O filme reúne gerações de fãs ao trazer de volta vilões icônicos e
-          <br />
-          variantes do herói, criando uma experiência cinematográfica
-          <br />
-          inesquecível que celebra o legado do personagem.
-        </p>
-      </section>
-      <footer>
-        <h6 className={`${bg_v2} ${p} text-center`}>
-          &copy; 2026 Criado por um fã do Aranha.
-          <br />
-          Todos os direitos reservados à Marvel & Sony.
-        </h6>
+
+      <main>
+        <section className="hero" id="inicio">
+          <div className="hero-overlay" />
+          <div className="hero-content">
+            <p className="eyebrow">
+              <span /> MARVEL STUDIOS <span />
+            </p>
+            <h1>
+              Sem volta
+              <br />
+              <em>para casa.</em>
+            </h1>
+            <p className="hero-copy">
+              O multiverso foi aberto. Três gerações. Um destino.
+            </p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#historia">
+                Explorar o filme <ArrowIcon />
+              </a>
+              <a className="text-link" href="#legado">
+                Conheça o legado <span>↓</span>
+              </a>
+            </div>
+          </div>
+          <div className="hero-meta">
+            <span>2021</span>
+            <span className="meta-line" />
+            <span>2h 28min</span>
+            <span className="meta-line" />
+            <span>PG-13</span>
+          </div>
+          <div className="scroll-cue">
+            <span /> role para explorar
+          </div>
+        </section>
+
+        <section className="story section-wrap" id="historia">
+          <div className="section-label">
+            01 <span /> A HISTÓRIA
+          </div>
+          <div className="story-grid">
+            <div className="story-heading">
+              <p className="kicker">Uma nova dimensão</p>
+              <h2>
+                Quando todos
+                <br />
+                sabem <em>seu nome.</em>
+              </h2>
+            </div>
+            <div className="story-copy">
+              <p>
+                Depois que a identidade do Homem-Aranha é revelada, Peter Parker
+                procura o Doutor Estranho para recuperar sua vida normal.
+              </p>
+              <p>
+                Mas um feitiço dá errado e abre as portas do multiverso,
+                trazendo vilões e heróis de outras realidades para o seu mundo.
+              </p>
+              <a className="inline-link" href="#elenco">
+                Descubra os personagens <ArrowIcon />
+              </a>
+            </div>
+          </div>
+          <div className="story-visual">
+            <img src={spidersImage} alt="As três gerações do Homem-Aranha" />
+            <div className="visual-caption">
+              <span>Uma história sobre</span>
+              <strong>responsabilidade.</strong>
+            </div>
+          </div>
+        </section>
+
+        <section className="cast-section section-wrap" id="elenco">
+          <div className="section-label">
+            02 <span /> ELENCO PRINCIPAL
+          </div>
+          <div className="cast-heading">
+            <h2>
+              Os rostos por
+              <br />
+              <em>trás da máscara.</em>
+            </h2>
+            <p>
+              Uma reunião histórica que celebra o legado do herói mais querido
+              da vizinhança.
+            </p>
+          </div>
+          <div className="cast-grid">
+            {cast.map((person) => (
+              <Cast key={person.name} {...person} />
+            ))}
+          </div>
+        </section>
+
+        <section className="legacy" id="legado">
+          <div className="legacy-overlay" />
+          <div className="legacy-content section-wrap">
+            <div className="section-label">
+              03 <span /> O LEGADO
+            </div>
+            <p className="kicker">Com grandes poderes...</p>
+            <h2>
+              ...vêm grandes
+              <br />
+              <em>encontros.</em>
+            </h2>
+            <p>
+              Uma carta de amor aos fãs que acompanharam cada versão do herói ao
+              longo das décadas.
+            </p>
+            <a className="button button-light" href="#inicio">
+              Voltar ao topo <ArrowIcon />
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <span>© 2026 Spider-Man Fan Experience</span>
+        <span>Uma experiência feita por fãs, para fãs.</span>
+        <a href="#inicio">↑</a>
       </footer>
-    </main>
+    </div>
+  );
+}
+
+createRoot(document.querySelector("body")).render(
+  <StrictMode>
+    <App />
   </StrictMode>,
 );

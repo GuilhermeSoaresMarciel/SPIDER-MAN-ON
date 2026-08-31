@@ -1,8 +1,10 @@
-function Cast({ Title, Inf }) {
+function Cast({ name, role, number }) {
   return (
-    <article className="w-[100%] bg-gray-800 p-2 font-extrabold rounded-2xl">
-      <h1>{Title}</h1>
-      <p>{Inf}</p>
+    <article className="cast-card">
+      <span className="cast-number">{number}</span>
+      <span className="cast-orbit" aria-hidden="true" />
+      <h3>{name}</h3>
+      <p>{role}</p>
     </article>
   );
 }
