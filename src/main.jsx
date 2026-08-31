@@ -94,6 +94,16 @@ createRoot(document.querySelector("body")).render(
           <Cast Title="Benedict Cumberbatch" Inf="Doutor Estranho" />
           <Cast Title="Jacob Batalon" Inf="Ned Leeds" />
         </div>
+        <h1 className={`text-4xl ${text_color_v2} font-extrabold`}>
+          Conexão de Mundos
+        </h1>
+        <p>
+          O filme reúne gerações de fãs ao trazer de volta vilões icônicos e
+          <br />
+          variantes do herói, criando uma experiência cinematográfica
+          <br />
+          inesquecível que celebra o legado do personagem.
+        </p>
       </section>
       <footer>
         <h6 className={`${bg_v2} ${p} text-center`}>
