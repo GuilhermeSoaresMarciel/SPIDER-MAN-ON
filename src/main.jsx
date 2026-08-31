@@ -5,11 +5,11 @@ import "./index.css";
 
 import img_spiders from "./assets/spiders.png";
 
-const bg_v1 = "bg-sky-950";
-const bg_v2 = "bg-sky-900";
+const bg_v1 = "bg-gray-900";
+const bg_v2 = "bg-gray-700";
 
 const text_color_v1 = "text-white";
-const text_color_v2 = "text-sky-800";
+const text_color_v2 = "text-sky-700";
 
 const font_main = "font-sans";
 
