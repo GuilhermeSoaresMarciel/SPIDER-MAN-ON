@@ -13,7 +13,7 @@ app.get("/comments", (req, res) => {
 app.post("/comments", (req, res) => {
   const { comment } = req.body;
 
-  list_comments.unshift(comment);
+  list_comments.splice(0, 0, comment);
 
   res.send(list_comments);
 });
