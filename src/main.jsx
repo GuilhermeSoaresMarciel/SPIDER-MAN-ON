@@ -3,18 +3,20 @@ import { createRoot } from "react-dom/client";
 
 import "./index.css";
 
-const bg_v1 = "bg-blue-950";
-const bg_v2 = "bg-blue-900";
+import img_spiders from "./assets/spiders.png";
+
+const bg_v1 = "bg-sky-950";
+const bg_v2 = "bg-sky-900";
 
 const text_color_v1 = "text-white";
-const text_color_v2 = "text-blue-500";
+const text_color_v2 = "text-sky-800";
 
 const font_main = "font-sans";
 
 const p = "p-2";
 const gap = "gap-2";
 
-const hover = "hover:bg-blue-300";
+const hover = "hover:bg-sky-700";
 
 createRoot(document.querySelector("body")).render(
   <StrictMode>
@@ -43,7 +45,7 @@ createRoot(document.querySelector("body")).render(
         </nav>
       </header>
       <section
-        className={`h-[100vh] flex flex-col justify-center items-center ${gap} font-extrabold bg-[url(./assets/hero-bg.jpg)] bg-center bg-no-repeat bg-cover`}
+        className={`min-h-[100vh] flex flex-col justify-center items-center ${gap} font-extrabold bg-[url(./assets/hero-bg.jpg)] bg-center bg-no-repeat bg-cover`}
         id="Inicio"
       >
         <h1 className={`text-4xl ${text_color_v2}`}>SEM VOLTA PARA CASA</h1>
@@ -51,11 +53,34 @@ createRoot(document.querySelector("body")).render(
           A lenda dos cinemas tem nome
           <span className={`text-4xl ${text_color_v2}`}>?</span>
         </h1>
-        <button
+        <a
           className={`${bg_v2} rounded-2xl ${p} transition-all hover:scale-110 ${hover}`}
+          href="#Sobre"
         >
           Explorar Agora!
-        </button>
+        </a>
+      </section>
+      <section
+        className={`min-h-[100vh] text-center flex flex-col justify-center items-center ${gap} ${p}`}
+        id="Sobre"
+      >
+        <h1 className={`text-4xl ${text_color_v2} font-extrabold`}>
+          O Multiverso foi Aberto
+        </h1>
+        <p>
+          Pela primeira vez na história cinematográfica do Homem-Aranha, nosso
+          <br />
+          herói amigão da vizinhança é desmascarado e não consegue mais separar
+          <br />
+          sua vida normal dos grandes riscos de ser um super-herói. Quando ele
+          <br />
+          pede ajuda ao Doutor Estranho, os riscos tornam-se ainda mais
+          <br />
+          perigosos, forçando-o a descobrir o que realmente significa ser o
+          <br />
+          Homem-Aranha.
+        </p>
+        <img className="w-[100%] rounded-2xl" src={img_spiders} />
       </section>
       <footer>
         <h6 className={`${bg_v2} ${p} text-center`}>
