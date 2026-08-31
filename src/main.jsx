@@ -3,18 +3,18 @@ import { createRoot } from "react-dom/client";
 
 import "./index.css";
 
-const bg_v1 = "bg-sky-950";
-const bg_v2 = "bg-sky-700";
+const bg_v1 = "bg-blue-950";
+const bg_v2 = "bg-blue-900";
 
 const text_color_v1 = "text-white";
-const text_color_v2 = "text-sky-300";
+const text_color_v2 = "text-blue-500";
 
 const font_main = "font-sans";
 
 const p = "p-2";
 const gap = "gap-2";
 
-const hover = "hover:bg-sky-300";
+const hover = "hover:bg-blue-300";
 
 createRoot(document.querySelector("body")).render(
   <StrictMode>
