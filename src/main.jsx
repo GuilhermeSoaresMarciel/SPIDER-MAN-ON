@@ -3,17 +3,18 @@ import { createRoot } from "react-dom/client";
 
 import "./index.css";
 
-const bg_v1 = "bg-zinc-900";
-const bg_v2 = "bg-zinc-800";
-const bg_v3 = "bg-zinc-700";
+const bg_v1 = "bg-sky-950";
+const bg_v2 = "bg-sky-700";
 
 const text_color_v1 = "text-white";
-const text_color_v2 = "text-sky-500";
+const text_color_v2 = "text-sky-300";
 
 const font_main = "font-sans";
 
 const p = "p-2";
 const gap = "gap-2";
+
+const hover = "hover:bg-sky-300";
 
 createRoot(document.querySelector("body")).render(
   <StrictMode>
@@ -21,9 +22,24 @@ createRoot(document.querySelector("body")).render(
       <header className={`${bg_v2} flex justify-between items-center ${p}`}>
         <img className="w-[100px]" src="/logo.png" />
         <nav className={`flex ${gap}`}>
-          <a href="#Inicio">Início</a>
-          <a href="#Sobre">Sobre</a>
-          <a href="#Elenco">Elenco</a>
+          <a
+            className={`transition-all rounded-2xl ${p} ${hover}`}
+            href="#Inicio"
+          >
+            Início
+          </a>
+          <a
+            className={`transition-all rounded-2xl ${p} ${hover}`}
+            href="#Sobre"
+          >
+            Sobre
+          </a>
+          <a
+            className={`transition-all rounded-2xl ${p} ${hover}`}
+            href="#Elenco"
+          >
+            Elenco
+          </a>
         </nav>
       </header>
       <section
@@ -36,7 +52,7 @@ createRoot(document.querySelector("body")).render(
           <span className={`text-4xl ${text_color_v2}`}>?</span>
         </h1>
         <button
-          className={`${bg_v2} rounded-2xl ${p} transition-all hover:scale-110 hover:${bg_v3}`}
+          className={`${bg_v2} rounded-2xl ${p} transition-all hover:scale-110 ${hover}`}
         >
           Explorar Agora!
         </button>
